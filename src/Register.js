@@ -25,7 +25,8 @@ export default function Register(){
         console.log(register);
     };
 
-    function sendRegister(){
+    function sendRegister(e){
+        e.preventDefault();
         console.log(register);
         if (register.password === register.confirmpassword){
             const require = axios.post('http://localhost:5001/register',register);
@@ -47,11 +48,11 @@ export default function Register(){
         <Content>
             <Title>MyWallet</Title>
             <Form onSubmit={sendRegister}>
-                <input type='text' name='name' onChange={handleForm} placeholder="Name" required></input>
+                <input type='text' name='name' onChange={handleForm} placeholder="Nome" required></input>
                 <input type='email' name='email' onChange={handleForm} placeholder="Email" required></input>
-                <input type='password' name='password' onChange={handleForm} placeholder="Password" minLength="8" required></input>
-                <input type='password' name='confirmpassword'onChange={handleForm} placeholder="Confirm Password" required></input>
-                <button type="submit">Register</button>
+                <input type='password' name='password' onChange={handleForm} placeholder="Senha" minLength="8" required></input>
+                <input type='password' name='confirmpassword'onChange={handleForm} placeholder="Confirmar Senha" required></input>
+                <button type="submit">Cadastrar</button>
             </Form>
             <Link to={'/login'}>
                 <LinktoRegister>

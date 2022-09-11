@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Body = styled.div`
     background-color: #8C11BE;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
