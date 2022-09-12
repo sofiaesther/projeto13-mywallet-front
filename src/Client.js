@@ -41,7 +41,7 @@ export default function Client({username, setUsername, operator, setOperator}){
     console.log(transactions)
 
     let saldo = 0;
-    transactions.map(t => (t.operation==='out')? saldo+=(-1* parseFloat(t.amount)) :saldo+= parseFloat(t.amount))
+    if (transactions.length>0){transactions.map(t => (t.operation==='out')? saldo+=(-1* parseFloat(t.amount)) :saldo+= parseFloat(t.amount))}
     let operation = 'enter';
     if(saldo<0){
         operation = 'out';
@@ -58,16 +58,28 @@ export default function Client({username, setUsername, operator, setOperator}){
         };
         navigate('/operation');
     }
+    function Logout(){
+        const loadtransactions = axios.delete('http://localhost:5001/logout', config);
+        loadtransactions.then((element)=>{
+            localStorage.removeItem("UserAuth");
+            navigate('/login');
+        });
+        loadtransactions.catch((error)=>{
+            console.log(error);
+            navigate('/login');
+        
+        })
+    }
 
     return(
         <Content>
             <Top>
                 <h1>Olá, {username.name}</h1>
-                <ion-icon name="exit-outline"></ion-icon>
+                <ion-icon name="exit-outline" onClick={Logout}></ion-icon>
             </Top>
             <InfoBox>
 
-                {(transactions.length!==0)? transactions.map( t => <>
+                {(transactions.length>0)? transactions.map( t => <>
                 <Transactions>
                     <Date>{t.date}</Date>
                     <Information>
