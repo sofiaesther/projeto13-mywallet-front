@@ -24,6 +24,7 @@ export default function Operation({operator, setOperator}){
             ...form,
             [e.target.name]:e.target.value
         })
+        console.log(form)
     };
 
     useEffect(()=>{
@@ -39,7 +40,8 @@ export default function Operation({operator, setOperator}){
 
     function sendOperation(e){
         e.preventDefault();
-        const addtransactions = axios.get('http://localhost:5001/operation', form, config);
+        console.log(form, config)
+        const addtransactions = axios.post('http://localhost:5001/operation', form, config);
         addtransactions.then((element)=>{
             navigate('/');
 
