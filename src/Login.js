@@ -24,16 +24,16 @@ export default function Login({username, setUsername}){
         setLogin({
             ...login,
             [e.target.name]:e.target.value
-        })
+        });
     };
 
     function sendLogin(e){
         e.preventDefault();
-        console.log(login);
+
         const require = axios.post('http://localhost:5001/login/',login);
         require.then((element)=> {
             const response = element.data;
-            console.log(response);
+
             setConfig({headers:{...config, Authorization: `Bearer ${response.token}`}});
             localStorage.setItem("UserAuth", `${response.token}`);
             setUsername({...username, name:response.name});
@@ -42,7 +42,7 @@ export default function Login({username, setUsername}){
         require.catch((element)=>{
             alert(`Erro ${element}`);
         });
-    }
+    };
 
 
 

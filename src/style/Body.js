@@ -53,7 +53,7 @@ const Form = styled.form`
         }
     }
 
-`
+`;
 
 const LinktoRegister = styled.div`
 margin-top: 15px;
@@ -61,5 +61,5 @@ margin-top: 15px;
     text-align: center;
     color: #fff;
     text-decoration: none;
-`
+`;
 export { Body, Form, LinktoRegister };

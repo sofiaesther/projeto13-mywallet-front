@@ -5,7 +5,7 @@ const Content = styled.div`
     margin: auto;
     display: flex;
     flex-direction: column;
-`
+`;
 const Top = styled.div`
     margin-top: 30px;
     display: flex;
@@ -15,12 +15,12 @@ const Top = styled.div`
         font-size: 30px;
     }
 
-`
+`;
 
 const InfoBox = styled.div`
     background-color: #fff;
     margin-top: 30px;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 330px);
     border-radius: 5px;
     padding: 10px;
     display: flex;
@@ -44,17 +44,17 @@ const Buttons = styled.div`
         font-size: 18px;
         width: 50px;
     }
-`
+`;
 const Operation = styled.div`
     margin-top: 30px;
     display: flex;
     justify-content:space-between;
-`
+`;
 const Transactions = styled.div`
     display: flex;
     margin:5px 10px;
 
-`
+`;
 const Information = styled.div`
     display: flex;
     justify-content: space-between;
@@ -64,7 +64,7 @@ const Information = styled.div`
 `
 const Date =styled.div`
     color: #C6C6C6;
-`
+`;
 
 const NoTransaction = styled.div`
     color:#868686;
@@ -72,5 +72,5 @@ const NoTransaction = styled.div`
     width: 180px;
     margin: 150px auto;
     text-align: center;
-`
+`;
 export {Date, NoTransaction, Content, Operation, InfoBox, Buttons, Top, Information, Transactions};

@@ -23,7 +23,7 @@ export default function App() {
       <UserContext.Provider value={{config, setConfig}}>
         <Body>
           <Routes>
-            <Route path='/' element={<Client operator={operator} setOperator={setOperator} username={username} setUsername={setUsername}/>} />
+            <Route path='/' element={<Client setOperator={setOperator} username={username} />} />
             <Route path='/login' element={<Login username={username} setUsername={setUsername}/>} />
             <Route path='/register' element={<Register />} />
             <Route path='/operation' element={<Operation operator={operator} setOperator={setOperator}/>} />

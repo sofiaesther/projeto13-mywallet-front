@@ -1,13 +1,13 @@
 import React from "react";
-import {Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import styled from "styled-components";
 import axios from "axios";
 
 import { useContext, useState, useEffect } from "react";
 import UserContext from "./contexts/userContext.js";
 
-import { Form, LinktoRegister } from './style/Body.js';
-import { Title, Content } from './style/Login.Style.js';
+import { Form } from './style/Body.js';
+import { Content } from './style/Login.Style.js';
 
 export default function Operation({operator, setOperator}){
     const { config, setConfig } = useContext(UserContext);
@@ -64,8 +64,8 @@ export default function Operation({operator, setOperator}){
                 <button type="submit">{(operator==='out')?('Registrar Saída'):'Registrar Entrada'}</button>
             </Form>
         </Content>
-    )
-}
+    );
+};
 
 const Top = styled.div`
     margin: 30px auto auto 40px;
@@ -74,4 +74,4 @@ const Top = styled.div`
     font-size: 26px;
     font-weight: 900;
 
-`
+`;

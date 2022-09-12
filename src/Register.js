@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import { useState } from "react";
 
 import { Form, LinktoRegister } from './style/Body.js';
 import { Title, Content } from './style/Login.Style';
@@ -33,13 +32,13 @@ export default function Register(){
             require.then((element)=> {
                 navigate('/login');
             }
-            )
+            );
             require.catch((element)=>{
                 alert(`Erro ${element}`);
-            })
+            });
         } else{
             alert('senhas não coincidem');
-        }
+        };
     };
 
 
