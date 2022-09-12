@@ -18,7 +18,6 @@ export default function Client({username, setOperator}){
 
         const userAuth = localStorage.getItem("UserAuth");
         if (Object.keys(config).length===0){
-            console.log(userAuth,'userauth')
             if (!userAuth){
                 navigate('/login');
             }else{
@@ -38,7 +37,6 @@ export default function Client({username, setOperator}){
         })
     },[]);
 
-    console.log(transactions)
 
     let saldo = 0;
     if (transactions.length>0){transactions.map(t => (t.operation==='out')? saldo+=(-1* parseFloat(t.amount)) :saldo+= parseFloat(t.amount))}

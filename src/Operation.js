@@ -23,8 +23,7 @@ export default function Operation({operator, setOperator}){
         setForm({
             ...form,
             [e.target.name]:e.target.value
-        })
-        console.log(form)
+        });
     };
 
     useEffect(()=>{
