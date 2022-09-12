@@ -10,7 +10,7 @@ import { Title, Content } from './style/Login.Style.js';
 
 import {Link, useNavigate} from 'react-router-dom';
 
-export default function Login(){
+export default function Login({username, setUsername}){
     const { config, setConfig } = useContext(UserContext);
 
     let navigate = useNavigate();
@@ -32,9 +32,11 @@ export default function Login(){
         console.log(login);
         const require = axios.post('http://localhost:5001/login/',login);
         require.then((element)=> {
-            setConfig({headers:{...config, Authorization: `Bearer ${element.data}`}});
-            const userAuth = JSON.stringify(element.data)
-            localStorage.setItem("UserAuth", userAuth);
+            const response = element.data;
+            console.log(response);
+            setConfig({headers:{...config, Authorization: `Bearer ${response.token}`}});
+            localStorage.setItem("UserAuth", `${response.token}`);
+            setUsername({...username, name:response.name});
             navigate('/');
         });
         require.catch((element)=>{

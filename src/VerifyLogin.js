@@ -5,13 +5,14 @@ import { useNavigate  } from "react-router-dom";
 export default function Verification(){
     const { config, setConfig } = useContext(UserContext);
     const navigate = useNavigate();
-
-    if (Object.keys(config).length === 0){
-        if (localStorage.getItem("UserAuth") === null){
+    if (Object.keys(config).length===0){
+        const userAuth = localStorage.getItem("UserAuth");
+        console.log(userAuth,'userauth')
+        if (!userAuth){
             navigate('/login');
         }else{
-            const userAuth = JSON.parse(localStorage.getItem("UserAuth"));
-            setConfig({headers:{...config, Authorization: `Bearer ${userAuth.token}`}});
+            setConfig({...config, headers:{Authorization: `Bearer ${userAuth}`}});
         };
     };
+    console.log(config,'in')
 };

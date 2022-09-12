@@ -22,6 +22,7 @@ const InfoBox = styled.div`
     margin-top: 30px;
     height: calc(100vh - 250px);
     border-radius: 5px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
 `
@@ -49,5 +50,27 @@ const Operation = styled.div`
     display: flex;
     justify-content:space-between;
 `
+const Transactions = styled.div`
+    display: flex;
+    margin:5px 10px;
 
-export {Content, Operation, InfoBox, Buttons, Top};
+`
+const Information = styled.div`
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    margin-left: 20px;
+    width: 100%;
+`
+const Date =styled.div`
+    color: #C6C6C6;
+`
+
+const NoTransaction = styled.div`
+    color:#868686;
+    font-size: 20px;
+    width: 180px;
+    margin: 150px auto;
+    text-align: center;
+`
+export {Date, NoTransaction, Content, Operation, InfoBox, Buttons, Top, Information, Transactions};

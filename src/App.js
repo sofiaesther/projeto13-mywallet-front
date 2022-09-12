@@ -13,6 +13,8 @@ import Client from './Client.js';
 import {Body} from './style/Body.js';
 
 export default function App() {
+  const [username, setUsername] = useState({name:''});
+  const [operator, setOperator] = useState('');
 
   const [config, setConfig] = useState({});
   return (
@@ -21,9 +23,10 @@ export default function App() {
       <UserContext.Provider value={{config, setConfig}}>
         <Body>
           <Routes>
-            <Route path='/' element={<Client />} />
-            <Route path='/login' element={<Login />} />
+            <Route path='/' element={<Client operator={operator} setOperator={setOperator} username={username} setUsername={setUsername}/>} />
+            <Route path='/login' element={<Login username={username} setUsername={setUsername}/>} />
             <Route path='/register' element={<Register />} />
+            <Route path='/operation' element={<Operation operator={operator} setOperator={setOperator}/>} />
           </Routes>
         </Body>
       </UserContext.Provider>
